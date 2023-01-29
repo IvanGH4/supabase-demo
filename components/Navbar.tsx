@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { supabase } from '@/lib/supabase-client';
 
 import { AppContext } from '@/components/context';
+import { UserContext } from '@/types/user';
 
 const Navbar = () => {
-  // @ts-ignore
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser } = useContext<UserContext>(AppContext);
 
   const router = useRouter();
 
@@ -32,6 +32,7 @@ const Navbar = () => {
               <Link className='p-2 hover:text-green-600' href='/signup'>Sign up</Link>
             </>
           )}
+        <Link className='p-2 hover:text-green-600' href='/chat'>Chat room</Link>
       </div>
       <div>
         <h1 className='font-bold text-green-500 text-2xl'>

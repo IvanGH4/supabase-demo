@@ -1,3 +1,5 @@
+import React from 'react';
+
 export type User = {
   app_metadata?: {
     provider?: string;
@@ -14,5 +16,10 @@ export type User = {
   phone: string;
   role: string;
   updated_at: string;
-  userMetadata?: {}
-}
+  userMetadata?: {};
+};
+
+export type UserContext = {
+  user: null | User;
+  setUser: React.Dispatch<React.SetStateAction<null>>;
+};

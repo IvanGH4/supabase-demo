@@ -3,14 +3,14 @@ import { supabase } from '@/lib/supabase-client';
 import { useRouter } from 'next/router';
 
 import { AppContext } from '@/components/context';
+import { UserContext } from '@/types/user';
 
 interface Props {
   authType: 'login' | 'signup';
 }
 
 const Form = ({ authType }: Props) => {
-  // @ts-ignore
-  const { setUser } = useContext(AppContext);
+  const { setUser } = useContext<UserContext>(AppContext);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -29,6 +29,7 @@ const Form = ({ authType }: Props) => {
           email: userCredentials.email,
           password: userCredentials.password,
         });
+        // @ts-ignore
         setUser(data.user);
 
         if (error) {
@@ -40,6 +41,7 @@ const Form = ({ authType }: Props) => {
           email: userCredentials.email,
           password: userCredentials.password,
         });
+        // @ts-ignore
         setUser(data.user);
 
         if (error) {
@@ -83,7 +85,7 @@ const Form = ({ authType }: Props) => {
         className='p-2 text-white border border-white rounded-sm hover:bg-white hover:text-black transition'
         onClick={handleSubmit}
       >
-        Send
+        {authType === 'login' ? 'Login' : 'Sign up'}
       </button>
       {error && (
         <p className='text-red-500 font-bold'>

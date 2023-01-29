@@ -1,12 +1,12 @@
+import { User, UserContext } from '@/types/user';
 import React, { createContext, useState } from 'react';
 
-export const AppContext = createContext(null);
+export const AppContext = createContext<UserContext>({ user: null, setUser: () => {} });
 
 const AppProvider = ({ children }: { children: React.ReactElement }) => {
   const [user, setUser] = useState(null);
 
   return (
-    // @ts-ignore
     <AppContext.Provider value={{ user, setUser }}>
       {children}
     </AppContext.Provider>
