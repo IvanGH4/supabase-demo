@@ -69,6 +69,7 @@ const Form = ({ authType }: Props) => {
         className='p-2 bg-white text-white bg-opacity-20 rounded-sm'
         type='email'
         placeholder='Email'
+        value={userCredentials.email}
         onChange={(e) =>
           setUserCredentials({ ...userCredentials, email: e.target.value })
         }
@@ -77,6 +78,7 @@ const Form = ({ authType }: Props) => {
         className='p-2 mb-2 bg-white text-white bg-opacity-20 rounded-sm'
         type='password'
         placeholder='Password'
+        value={userCredentials.password}
         onChange={(e) =>
           setUserCredentials({ ...userCredentials, password: e.target.value })
         }
