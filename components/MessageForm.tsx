@@ -18,6 +18,7 @@ const MessageForm = () => {
         {
           text: message,
           username,
+          user_id: user?.id
         },
       ]);
 
@@ -35,7 +36,7 @@ const MessageForm = () => {
 
   return (
     <form
-      className='flex flex-col gap-2 max-w-[25%] mx-auto p-4 border border-green-500'
+      className='flex flex-col gap-2 max-w-[500px] mx-auto p-4 border border-green-500'
       onSubmit={(e) => e.preventDefault()}
     >
       <textarea

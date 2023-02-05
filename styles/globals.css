@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Chrome, Edge, and Safari */
+.messsages-box::-webkit-scrollbar, .messsages-box::-webkit-scrollbar-track {
+  display: none;
+}
